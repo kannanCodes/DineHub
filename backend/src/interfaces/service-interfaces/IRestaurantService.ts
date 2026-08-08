@@ -4,7 +4,7 @@ export interface IRestaurantService {
 
      getAllRestaurants(): Promise<IRestaurant[]>;
 
-     getRestaurnatById(id: number): Promise<IRestaurant>;
+     getRestaurnatById(id: number): Promise<IRestaurant >;
 
      createRestaurant(
           data: Omit<IRestaurant, 'id'>
