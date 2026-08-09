@@ -12,7 +12,7 @@ export class RestaurantService implements IRestaurantService {
           return this.repo.findAll();
      }
 
-     async getRestaurnatById(id: number): Promise<IRestaurant> {
+     async getRestaurantById(id: number): Promise<IRestaurant> {
           const restaurant = await this.repo.findById(id);
 
           if (!restaurant) {

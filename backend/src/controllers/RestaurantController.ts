@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { IRestaurantService } from "../interfaces/service-interfaces/IRestaurantService";
 import { MESSAGES } from "../constants/messages";
+import { CreateRestaurantDto, updateRestaurantDto } from "../dtos/restaurant.dto";
 
 export class RestaurantController {
      constructor(private service: IRestaurantService) { }
@@ -29,7 +30,7 @@ export class RestaurantController {
           next: NextFunction
      ) => {
           try {
-               const restaurant = await this.service.getRestaurnatById(
+               const restaurant = await this.service.getRestaurantById(
                     Number(req.params.id)
                );
 
@@ -49,7 +50,7 @@ export class RestaurantController {
           next: NextFunction
      ) => {
           try {
-               const restaurant = await this.service.createRestaurant(req.body);
+               const restaurant = await this.service.createRestaurant(req.body as CreateRestaurantDto);
 
                res.status(201).json({
                     success: true,
@@ -69,7 +70,7 @@ export class RestaurantController {
           try {
                const restaurant = await this.service.updateRestaurant(
                     Number(req.params.id),
-                    req.body
+                    req.body as updateRestaurantDto
                );
 
                res.status(200).json({
