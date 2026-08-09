@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { IRestaurantService } from "../interfaces/service-interfaces/IRestaurantService";
+import { MESSAGES } from "../constants/messages";
 
 export class RestaurantController {
      constructor(private service: IRestaurantService) { }
@@ -14,7 +15,7 @@ export class RestaurantController {
 
                res.status(200).json({
                     success: true,
-                    message: "Restaurants fetched successfully",
+                    message: MESSAGES.RESTAURANT.FETCHED_ALL,
                     data: restaurants,
                });
           } catch (error) {
@@ -34,6 +35,7 @@ export class RestaurantController {
 
                res.status(200).json({
                     success: true,
+                    message: MESSAGES.RESTAURANT.FETCHED_ONE,
                     data: restaurant,
                });
           } catch (error) {
@@ -51,7 +53,7 @@ export class RestaurantController {
 
                res.status(201).json({
                     success: true,
-                    message: "Restaurant created successfully",
+                    message: MESSAGES.RESTAURANT.CREATED,
                     data: restaurant,
                });
           } catch (error) {
@@ -72,7 +74,7 @@ export class RestaurantController {
 
                res.status(200).json({
                     success: true,
-                    message: "Restaurant updated successfully",
+                    message: MESSAGES.RESTAURANT.UPDATED,
                     data: restaurant,
                });
           } catch (error) {
@@ -92,7 +94,7 @@ export class RestaurantController {
 
                res.status(200).json({
                     success: true,
-                    message: "Restaurant deleted successfully",
+                    message: MESSAGES.RESTAURANT.DELETED,
                });
           } catch (error) {
                next(error);
