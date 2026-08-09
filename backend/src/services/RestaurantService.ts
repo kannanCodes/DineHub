@@ -2,6 +2,7 @@ import { IRestaurant } from "../infrastructure/database/models/restaurant.model"
 import { IRestaurantRepository } from "../interfaces/repository-interfaces/IRestaurantRepository";
 import { IRestaurantService } from "../interfaces/service-interfaces/IRestaurantService";
 import { AppError } from "../shared/utils/AppError";
+import { MESSAGES } from "../constants/messages";
 
 
 export class RestaurantService implements IRestaurantService {
@@ -15,7 +16,7 @@ export class RestaurantService implements IRestaurantService {
           const restaurant = await this.repo.findById(id);
 
           if (!restaurant) {
-               throw new AppError('Restaurant not found', 404)
+               throw new AppError(MESSAGES.RESTAURANT.NOT_FOUND, 404)
           }
           return restaurant;
      }
@@ -28,7 +29,7 @@ export class RestaurantService implements IRestaurantService {
           const updated = await this.repo.update(id, data);
 
           if (!updated) {
-               throw new AppError("Restaurant not found", 404);
+               throw new AppError(MESSAGES.RESTAURANT.NOT_FOUND, 404);
           }
 
           return updated;
@@ -37,7 +38,7 @@ export class RestaurantService implements IRestaurantService {
      async deleteRestaurant(id: number): Promise<void> {
           const deleted = await this.repo.delete(id);
           if (!deleted) {
-               throw new AppError("Restaurant not found", 404);
+               throw new AppError(MESSAGES.RESTAURANT.NOT_FOUND, 404);
 
           }
 

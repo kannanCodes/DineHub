@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { AppError } from "../shared/utils/AppError";
+import { MESSAGES } from "../constants/messages";
 
 export const errorMiddleware = (
      err: unknown,
@@ -8,7 +9,7 @@ export const errorMiddleware = (
      next: NextFunction
 ) => {
      if (err instanceof AppError) {
-          res.status(err.statuscode).json({
+          res.status(err.statusCode).json({
                success: false,
                message: err.message,
           });
@@ -20,6 +21,6 @@ export const errorMiddleware = (
 
      res.status(500).json({
           success: false,
-          message: "Internal server error",
+          message: MESSAGES.SERVER.INTERNAL_ERROR,
      });
 };
