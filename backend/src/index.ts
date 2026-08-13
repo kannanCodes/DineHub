@@ -9,6 +9,7 @@ const STARTSERVER = async () => {
   try {
     initRestaurantModel(sequelize);
     await sequelize.authenticate();
+    await sequelize.sync({ alter: true });
     console.log(MESSAGES.SERVER.DB_CONNECTED);
     app.listen(PORT, () => {
       console.log(MESSAGES.SERVER.RUNNING(PORT));
