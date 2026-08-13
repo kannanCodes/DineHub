@@ -17,7 +17,7 @@ const LandingPage = () => {
           gap: 3,
         }}
       >
-        <Typography variant="h2" fontWeight={800} color="primary">
+        <Typography variant="h2" color="primary" sx={{ fontWeight: 800 }}>
            Dine Hub
         </Typography>
 
