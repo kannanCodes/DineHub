@@ -8,10 +8,10 @@ export interface IRestaurant {
 }
 
 export class Restaurant extends Model<IRestaurant> implements IRestaurant {
-     public id!: number;
-     public name!: string;
-     public address!: string;
-     public contact!: string;
+     declare public id: number;
+     declare public name: string;
+     declare public address: string;
+     declare public contact: string;
 }
 
 export const initRestaurantModel = (sequelize: Sequelize) => {

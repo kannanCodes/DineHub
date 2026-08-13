@@ -1,24 +1,14 @@
-import {Box, Button } from "@mui/material"
+import { Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import RestaurantsPage from "./pages/RestaurantsPage";
 
-const App = () => {
+function App() {
   return (
-    // <div>
-    //   <h1>Dine Hub</h1>
-    //   <Button variant="contained">Add Restaurant</Button>
-      
-    // </div>
-    <Box>
-
-      <h1>Restaurant Platform</h1>
-
-      <Button variant="contained">
-
-        Add Restaurant
-
-      </Button>
-
-    </Box>
-  )
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/restaurants" element={<RestaurantsPage />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

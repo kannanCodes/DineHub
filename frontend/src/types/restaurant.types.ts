@@ -16,3 +16,10 @@ export interface UpdateRestaurantData {
   address?: string;
   contact?: string;
 }
+
+// Matches the backend's sendSuccess() response shape
+export interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+}
