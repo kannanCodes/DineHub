@@ -3,7 +3,7 @@ import { sequelize } from "./config/database";
 import { initRestaurantModel } from "./infrastructure/database/models/restaurant.model";
 import { MESSAGES } from "./constants/messages";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const STARTSERVER = async () => {
   try {

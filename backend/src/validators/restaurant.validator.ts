@@ -5,7 +5,7 @@ export const createRestaurantSchema = Joi.object({
 
   address: Joi.string().trim().min(5).max(255).required(),
 
-  contact: Joi.string().trim().min(5).max(20).required(),
+  contact: Joi.string().trim().pattern(/^\d+$/).message("Contact must contain only numbers").min(10).max(20).required(),
 });
 
 export const updateRestaurantSchema = Joi.object({
@@ -13,5 +13,5 @@ export const updateRestaurantSchema = Joi.object({
 
   address: Joi.string().trim().min(5).max(255),
 
-  contact: Joi.string().trim().min(5).max(20),
+  contact: Joi.string().trim().pattern(/^\d+$/).message("Contact must contain only numbers").min(10).max(20),
 }).min(1);
