@@ -7,7 +7,8 @@ import type {
   ApiResponse,
 } from "../types/restaurant.types";
 
-const BASE_URL = `${import.meta.env.VITE_API_BASE_URL}/restaurants`;
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://dinehub-pc0z.onrender.com/api";
+const BASE_URL = `${API_BASE}/restaurants`;
 
 export const getRestaurants = async (): Promise<Restaurant[]> => {
   const response = await axios.get<ApiResponse<Restaurant[]>>(BASE_URL);
