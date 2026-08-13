@@ -139,11 +139,13 @@ function RestaurantsPage() {
     <Container maxWidth="lg" sx={{ py: 4 }}>
       {/* Header */}
       <Box
-        display="flex"
-        alignItems="center"
-        mb={3}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          mb: 3,
+        }}
       >
-        <Typography variant="h4" fontWeight={700}>
+        <Typography variant="h4" sx={{ fontWeight: 700 }}>
           Restaurant Listing
         </Typography>
 
@@ -159,7 +161,7 @@ function RestaurantsPage() {
 
       {/* Loading */}
       {loading && (
-        <Box display="flex" justifyContent="center" mt={6}>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 6 }}>
           <CircularProgress />
         </Box>
       )}

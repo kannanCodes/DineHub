@@ -1,5 +1,4 @@
 import {
-  Button,
   IconButton,
   Paper,
   Table,
@@ -32,8 +31,8 @@ const RestaurantTable = ({
       <Typography
         variant="body1"
         color="text.secondary"
-        textAlign="center"
-        mt={4}
+        align="center"
+        sx={{ mt: 4 }}
       >
         No restaurants found. Add one to get started.
       </Typography>
